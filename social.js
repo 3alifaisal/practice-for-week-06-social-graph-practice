@@ -71,10 +71,13 @@ class SocialNetwork {
       
       let followsPath = queue.shift();
       let currUser = followsPath[followsPath.length -1];
-     
+      // user himself and his follows are skipped
       if (followsPath.length > 2 ) {
+        // return 
         if(followsPath.length -2 <= degrees){
           recommendedUsers.push(currUser)
+        } else {
+          break;
         }
       }
       
