@@ -29,14 +29,35 @@ class.
 
 ### Add User
 
-Implement `addUser` which takes in a name. It should create and store a User
-object with two keys: an integer ID that starts from 1 and increments for each
-new user, and a name which uses the passed in name parameter. It should also
-initialize a new set to track who the user follows. The return value of
-`addUser` should be the unique ID that can be used to access that user.
+Implement `addUser` which takes in a name.
+ It should create and store a User.
+ user object with two keys:
+
+     an integer ID that starts from 1 and increments for each new user, 
+     
+     and a name which uses the passed in name parameter. 
+     
+     It should also initialize a new set to track who the user follows. 
+     
+     The return value of`addUser` should be the unique ID that can be used to access that user.
 
 When implemented correctly, the stored User object will look like this:
 `{ "id": 1, "name": "John Doe" }`
+
+
+  describe('addUser', () => {
+
+    it('can create a user', function () {
+
+      expect(Object.keys(socialNetwork.users).length).to.equal(0);
+
+      expect(socialNetwork.addUser("User 1")).to.equal(1);
+
+      expect(Object.keys(socialNetwork.users).length).to.equal(1);
+
+      expect(socialNetwork.users['1']).to.deep.equal({ id: 1, name: 'User 1' });
+
+    });
 
 Example:
 
